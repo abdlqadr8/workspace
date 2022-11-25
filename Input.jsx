@@ -1,7 +1,44 @@
-export const TextField = () => {
-  return <h1>TextField</h1>;
+export const TextField = ({ title, type, name }) => {
+  return (
+    <div style={{ margin: '10px' }}>
+      <label for={name}>{title}: </label>
+      <input type={type} name={name} id={name} value="" />
+    </div>
+  );
 };
 
+const options = [
+  {
+    label: 'car',
+    value: 'car',
+  },
+  {
+    label: 'bike',
+    value: 'bike',
+  },
+];
+
 export const SelectField = () => {
-  return <h1>SelectField</h1>;
+  return (
+    <div>
+      <select id='vehicle'>
+        {options.map((option) => 
+          <option key={option} value={option.value}>
+            {option.label}
+          </option>
+        )}
+      </select>
+    </div>
+  );
+};
+
+export const Select = () => {
+  return (
+    <div>
+      <select>
+        <option>one</option>
+        <option>two</option>
+      </select>
+    </div>
+  );
 };

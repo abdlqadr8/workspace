@@ -1,11 +1,13 @@
 
-import { SelectField, TextField } from '../Input'
+import { Select, SelectField, TextField } from '../Input'
 import { useForm } from '../useForm'
 import './App.css'
 
 function App() {
-    const {step, steps, index, back, next} = useForm([
-      <TextField />,
+    const {step, back, next} = useForm([
+      <TextField title='Name' name='name' type='text' />,
+      <TextField title='Number' name='number' type='number' />,
+      <Select />,
       <SelectField />
     ]);
 
