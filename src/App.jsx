@@ -1,23 +1,19 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { Select, SelectField, TextField } from '../Input'
-import { useForm } from '../useForm'
-import './App.css'
+import { Card } from './components/Card';
+import { Layout } from './components/Layout';
+import { Note } from './components/Note';
 
 function App() {
-    const {step, back, next} = useForm([
-      <TextField title='Name' name='name' type='text' />,
-      <TextField title='Number' name='number' type='number' />,
-      <Select />,
-      <SelectField />
-    ]);
-
   return (
-    <>
-    <button onClick={back}>back</button>
-      {step}
-      <button onClick={next}>next</button>
-    </>
-  )
+    <Router>
+      <Layout />
+      <Routes>
+        <Route path="/card" element={<Card />} />
+        <Route path="/note" element={<Note />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
