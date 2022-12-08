@@ -24,6 +24,8 @@ export function useForm(steps){
     steps,
     step: steps[index],
     next,
-    back
+    back,
+    firstStep: index === 0,
+    lastStep: index === maxLength,
   }
 } 

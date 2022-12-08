@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const User = () => {
-  const [user, setUser] = useState('aaa');
+
+export const User = ({ user, update }) => {
   return (
     <>
       Username:{' '}
       <input
         type="text"
         value={user}
-        onChange={(e) => setUser(e.target.value)}
-      />{' '}
+        onChange={(e) => update({user: e.target.value})}
+      />
       <br />
     </>
   );
