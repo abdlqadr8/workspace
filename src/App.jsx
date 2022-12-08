@@ -1,18 +1,17 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import { Card } from './components/Card';
-import { Layout } from './components/Layout';
-import { Note } from './components/Note';
+import { User, Password } from './components/Login';
+import './components/App.css';
+import { useForm } from './components/useForm';
 
 function App() {
+  const { step, back, next } = useForm([<User />, <Password />]);
+
   return (
-    <Router>
-      <Layout />
-      <Routes>
-        <Route path="/card" element={<Card />} />
-        <Route path="/note" element={<Note />} />
-      </Routes>
-    </Router>
+    <>
+      {step}
+      <button onClick={back}>back</button>
+
+      <button onClick={next}>next</button>
+    </>
   );
 }
 
