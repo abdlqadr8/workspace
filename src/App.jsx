@@ -15,17 +15,19 @@ function App() {
 
   const { step, back, next, firstStep, lastStep } = useForm([
     <User { ...data } update={update} />,
-    <Password />,
+    <Password { ...data } update={update} />,
   ]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!lastStep) return next();
     axios.post('https://reqres.in/api/login', {
-      user: user,
-      password: password,
+      user: data.user,
+      password: data.password,
     }).then(result =>{
-      alert(result)
+      console.log(result.data)
+      alert('success')
+      localStorage.setItem('token', result.data.token)
     }).catch(error => {
       console.log(error)
     })

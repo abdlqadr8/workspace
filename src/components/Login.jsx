@@ -1,6 +1,3 @@
-import { useState } from 'react';
-
-
 export const User = ({ user, update }) => {
   return (
     <>
@@ -15,15 +12,14 @@ export const User = ({ user, update }) => {
   );
 };
 
-export const Password = () => {
-  const [password, setPassword] = useState();
+export const Password = ({password, update }) => {
   return (
     <>
       Password:{' '}
       <input
         type="password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => update({password: e.target.value})}
       />{' '}
       <br />
     </>
