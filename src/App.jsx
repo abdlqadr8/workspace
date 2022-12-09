@@ -1,8 +1,40 @@
-import { User, Password } from './components/Login';
 import './components/App.css';
 import { useForm } from './components/useForm';
 import { useState } from 'react';
 // import axios from 'axios';
+
+const User = ({ user, update }) => {
+  return (
+    <>
+      Username:{' '}
+      <input
+        type="email"
+        id='email'
+        name='email'
+        value={user}
+        onChange={(e) => update({user: e.target.value})}
+      />
+      <br />
+    </>
+  );
+};
+
+const Password = ({password, update }) => {
+  return (
+    <>
+      Password:{' '}
+      <input
+        type="password"
+        id='password'
+        name='password'
+        value={password}
+        onChange={(e) => update({password: e.target.value})}
+      />{' '}
+      <br />
+    </>
+  );
+};
+
 
 function App() {
   const [data, setData] = useState({ user: '', password: '' });
@@ -14,7 +46,7 @@ function App() {
   }
 
   const { step, back, next, firstStep, lastStep } = useForm([
-    <User  />,
+    <User  update={update}/>,
     <Password />,
   ]);
 
@@ -27,16 +59,7 @@ function App() {
       email: data.get('email'),
       password: data.get('password'),
     });
-    // axios.post('https://reqres.in/api/login', {
-    //   user: data.user,
-    //   password: data.password,
-    // }).then(result =>{
-    //   console.log(result.data)
-    //   alert('success')
-    //   localStorage.setItem('token', result.data.token)
-    // }).catch(error => {
-    //   console.log(error)
-    // })
+
   }
 
   return (
