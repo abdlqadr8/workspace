@@ -3,7 +3,9 @@ export const User = ({ user, update }) => {
     <>
       Username:{' '}
       <input
-        type="text"
+        type="email"
+        id='email'
+        name='email'
         value={user}
         onChange={(e) => update({user: e.target.value})}
       />
@@ -18,6 +20,8 @@ export const Password = ({password, update }) => {
       Password:{' '}
       <input
         type="password"
+        id='password'
+        name='password'
         value={password}
         onChange={(e) => update({password: e.target.value})}
       />{' '}
